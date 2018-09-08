@@ -13,26 +13,11 @@ import {EventList} from './src/component/EventList'
 
 type Props = {};
 export default class App extends Component<Props> {
-  state = { events: [{title:'hoge'}] };
-
-  componentWillMount() {
-    fetch('https://connpass.com/api/v1/event/?keyword=python')
-      .then((response) => response.json())
-      .then((responseJson) => 
-        this.setState({
-          events: responseJson.events
-        }))
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
+  
   render() {
     return (
       <View>
-        <EventList
-          data={this.state.events}
-        />
+        <EventList />
       </View>
     );
   }
