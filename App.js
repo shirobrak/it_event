@@ -7,9 +7,9 @@
  */
 
 import React, {Component} from 'react';
-import {View, StyleSheet} from 'react-native';
-import Header from 'react-native-elements';
-import {EventList} from './src/component/EventList'
+import { View, StyleSheet } from 'react-native';
+import { Header } from 'react-native-elements';
+import { EventList } from './src/component/EventList'
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -17,6 +17,11 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View>
+        <Header
+          leftComponent={{ icon: 'menu', color: '#fff' }}
+          centerComponent={{ text: 'IT EVENT', style: { color: '#fff' } }}
+          rightComponent={{ icon: 'home', color: '#fff' }}
+        />
         <EventList />
       </View>
     );
