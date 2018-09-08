@@ -12,7 +12,7 @@ class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      event_url : ""
+      event_url : "https://google.com"
     };
   }
 
@@ -23,7 +23,7 @@ class HomeScreen extends Component {
   }
 
   _onPress(){
-    this.props.navigation.navigate('Details', {url: 'https://google.com'});
+    this.props.navigation.navigate('Details', {url: this.state.event_url});
   }
 
   render() {
