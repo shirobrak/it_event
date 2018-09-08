@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Text} from 'react-native'
+import {Button} from 'react-native'
 import {Card} from 'react-native-elements'
 
 export class EventItem extends Component{
@@ -7,10 +7,12 @@ export class EventItem extends Component{
 		return (
 			<Card
   			  title={this.props.title}
-  			  image={require('../../images/python.jpg')}>
-  			  <Text style={{marginBottom: 10}}>
-    			{this.props.startdate}
-  			  </Text>
+			  image={require('../../images/python.jpg')}>
+    		  <Button
+                icon={{name: 'eye', type: 'octicon'}}
+            	backgroundColor='#03A9F4'
+            	title='もっとみる'
+				onPress={this.props.onPress}/>
 			</Card>
 		);
 	}

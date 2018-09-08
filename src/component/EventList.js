@@ -4,9 +4,9 @@ import {EventItem} from './EventItem.js'
 
 export class EventList extends Component{
 	constructor(props) {
-    super(props);
-    this.state = { events : [] };
-  }
+    	super(props);
+		this.state = { events : [] };
+	}
 
 	componentWillMount() {
 		fetch('https://connpass.com/api/v1/event/?keyword=python')
@@ -31,6 +31,7 @@ export class EventList extends Component{
 					<EventItem 
 						title={item.title}
 						startdate={item.started_at}
+						onPress={this.props.onPress}
 					/>
 				}
 			/>
