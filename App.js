@@ -7,23 +7,32 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import {View, StyleSheet} from 'react-native';
+import Header from 'react-native-elements';
+import {EventList} from './src/component/EventList'
 
 type Props = {};
 export default class App extends Component<Props> {
+  state = { events: [{title:'hoge'}] };
+
+  componentWillMount() {
+    fetch('https://connpass.com/api/v1/event/?keyword=python')
+      .then((response) => response.json())
+      .then((responseJson) => 
+        this.setState({
+          events: responseJson.events
+        }))
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+      <View>
+        <EventList
+          data={this.state.events}
+        />
       </View>
     );
   }
