@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import {FlatList, TouchableOpacity} from 'react-native'
-import {EventItem} from './EventItem.js'
+import {EventItem} from '../component/EventItem'
 
-class EventListScreen extends Component{
+class NewsScreen extends Component{
 	static navigationOptions = {
-		title: 'Event List',
+		title: 'ITNews タイムライン',
 	  };
 
 	constructor(props) {
@@ -13,7 +13,7 @@ class EventListScreen extends Component{
 	}
 
 	componentWillMount() {
-		fetch('https://connpass.com/api/v1/event/?keyword=python')
+		fetch('https://connpass.com/api/v1/event/?keyword=Python')
 			.then((response) => response.json())
 			.then((responseJson) => {
 				this.setState(
@@ -43,4 +43,4 @@ class EventListScreen extends Component{
 		);
 	}
 }
-export default EventListScreen;
+export default NewsScreen;

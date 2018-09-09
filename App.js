@@ -7,18 +7,16 @@
  */
 
 import React, {Component} from 'react';
-import RootStack from './RootStack';
-
+import Router from './RootStack';
 
 type Props = {};
 class App extends Component<Props> {
 
   render() {
     return (
-      <RootStack />
+      <Router />
     );
   }
 }
-
 export default App;
 

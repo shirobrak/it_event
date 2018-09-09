@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Button} from 'react-native'
 import {Card} from 'react-native-elements'
 
 export class EventItem extends Component{
