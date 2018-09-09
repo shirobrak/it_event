@@ -9,6 +9,7 @@ class DetailsScreen extends Component {
     const { params } = this.props.navigation.state;
     return (
       <WebView
+        originWhitelist={['*']}
         source={{uri: params.url}}
         style={{marginTop: 0}}
       />

@@ -1,8 +1,12 @@
 import React, {Component} from 'react'
-import {FlatList} from 'react-native'
+import {FlatList, TouchableOpacity} from 'react-native'
 import {EventItem} from './EventItem.js'
 
-export class EventList extends Component{
+class EventListScreen extends Component{
+	static navigationOptions = {
+		title: 'Event List',
+	  };
+
 	constructor(props) {
     	super(props);
 		this.state = { events : [] };
@@ -28,13 +32,15 @@ export class EventList extends Component{
 				data={this.state.events}
 				keyExtractor={this._keyExtractor}
 				renderItem={({item}) => 
-					<EventItem 
-						title={item.title}
-						startdate={item.started_at}
-						onPress={this.props.onPress}
-					/>
+					<TouchableOpacity onPress={() => this.props.navigation.navigate('EventDetails', {url: item.event_url})}>
+						<EventItem 
+							title={item.title}
+							startdate={item.started_at}
+						/>
+					</TouchableOpacity>
 				}
 			/>
 		);
 	}
 }
+export default EventListScreen;

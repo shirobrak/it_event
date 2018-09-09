@@ -1,36 +1,23 @@
 import React, { Component } from 'react';
-import { EventList } from '../component/EventList'
 import {
   Actions,
 } from 'react-native-router-flux';
  
 class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Event List',
+    title: 'Home Screen',
   };
     
   constructor(props) {
     super(props);
-    this.state = {
-      event_url : "https://google.com"
-    };
   }
 
-  setEventUrl(url){
-    this.setState({
-      event_url: url
-    })
-  }
-
-  _onPress(){
-    this.props.navigation.navigate('Details', {url: this.state.event_url});
-  }
 
   render() {
     return (
-      <EventList
-        onPress={() => this._onPress()}
-      />
+      <View>
+        <Text>Home Page</Text>
+      </View>
     );
   }
 }
